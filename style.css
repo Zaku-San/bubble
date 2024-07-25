@@ -7,6 +7,7 @@
   text-decoration: none;
   list-style: none;
   border: none !important;
+  scroll-behavior: smooth;
 }
 :root {
   --primary-color: #2f6b4f;
@@ -33,53 +34,68 @@
   position: fixed;
   z-index: 1000;
   background-color: var(--primary-color);
-
+  align-items: center; /* Align items vertically */
 }
+
 .container .navbar .logo {
   width: 45%;
   display: flex;
   border: 1px solid palevioletred;
   align-items: center;
 }
+
 .container .navbar .logo img {
   width: 40px;
   height: 40px;
 }
+
 .container .navbar .logo p {
   margin-left: 13px;
   font-weight: bold;
 }
+
 .container .navbar .navbar-menu {
   width: 55%;
-  border: 1px solid red;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end; /* Align to the right */
   align-items: center;
+  position: relative; /* Position relative for absolute children */
 }
-.container .navbar .navbar-menu ul {
+
+.container .navbar .navbar-menu .hamburger {
+  display: none; /* Hide by default */
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: var(--secondary-color);
+}
+
+.container .navbar .navbar-menu .nav-links {
   display: flex;
-  width: 100%;
   justify-content: space-between;
-  border: 1px solid #000000;
+  width: 100%;
 }
+
 .container .navbar .navbar-menu a {
   color: var(--secondary-color);
+  text-decoration: none;
 }
 
 /* headers */
 .header {
   /* 929px top + 670 px */
+
   /* 945 + 624 */
-  
   display: flex;
   flex-direction: column;
-  border: 3px solid yellow;
+  border: 10px solid yellow;
   position: relative;
   box-sizing: border-box;
 }
 .header .header-menu {
   width: 100%;
-
+ 
   background-color: var(--primary-color);
   /* height: 929px; */
 }
@@ -158,7 +174,7 @@
 
 .container .our-service {
   background-color: var(--fourth-color);
-  height: 800px;
+  padding: 30px 0;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -178,28 +194,19 @@
 .container .our-service .services {
   /* 258 x 2 */
   display: flex;
-  flex-direction: column;
   border: 1px solid red;
   width: 100%;
   margin-top: 40px;
   padding: 0 7%;
+  flex-wrap: wrap;
+  gap: 1% 1%;
 }
-.container .our-service .services .top-services {
-  /* 290 + 54 = 344 */
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 54px;
-  border: 1px solid #b30909;
-}
-.container .our-service .services .top-services .services-box1,
-.services-box2,
-.services-box3,
-.services-box4,
-.services-box5,
-.services-box6 {
+
+.container .our-service .services .services-box {
+  margin-top: 20px;
   background-color: var(--secondary-color);
   height: 258px;
-  width: 289px;
+  width: calc(98% / 3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -208,34 +215,27 @@
   text-align: center;
   padding: 32px 0px;
 }
-.container .our-service .services .top-services .services-box1 p,
-.container .our-service .services .top-services .services-box2 p,
-.container .our-service .services .top-services .services-box3 p,
-.container .our-service .services .top-services .services-box4 p,
-.container .our-service .services .top-services .services-box5 p,
-.container .our-service .services .top-services .services-box6 p {
+.container .our-service .services .services-box p{
   font-size: 18px;
   margin-top: 16px;
 }
 
-.container .our-service .services .top-services .services-box1 h5,
-.container .our-service .services .top-services .services-box2 h5,
-.container .our-service .services .top-services .services-box3 h5,
-.container .our-service .services .top-services .services-box4 h5,
-.container .our-service .services .top-services .services-box5 h5,
-.container .our-service .services .top-services .services-box6 h5 {
+.container .our-service .services .services-box h5 {
   font-size: 24px;
   margin-top: 16px;
 }
 
 /* portofolio */
 .container .project-review {
-  height: 1135px;
+  height: max-content;
   background-color: var(--secondary-color);
   width: 100%;
-  border: 1px solid skyblue;
-  padding: 100px 5% 0px 5%;
+  border: 10px solid skyblue;
+  padding: 100px 5% 20px 5%;
+  display: flex;
+  flex-direction: column;
 }
+
 .container .project-review .our-portofolios {
   
   border: 1px solid #000000;
@@ -252,16 +252,20 @@
 
 .container .project-review .our-portofolios .recent-projects {
   margin-top: 40px;
-  border: 1px solid salmon;
+  border: 5px solid salmon;
   display: flex;
-  gap: 0px;
+  gap: 20px;
   justify-content: space-between;
   width: 100%;
 }
-
-.container .project-review .our-portofolios .recent-projects .project-x {
-  width: 360px;
+.container .project-review .our-portofolios .recent-projects .project-x  {
+  border: 2px solid black !important;
   
+  padding: 10px;
+}
+
+.container .project-review .our-portofolios .recent-projects .project-x img {
+  width: 100%;
 }
 .container .project-review .our-portofolios .recent-projects .project-x  h5 {
   font-size: 24px;
@@ -275,8 +279,8 @@
 
 /* review */
 .container .project-review .review {
-  margin-top: 94px;
-  border: 1px solid rgb(41, 198, 138);
+  margin-top: 20px;
+  border: 10px solid rgb(41, 198, 138);
   color: var(--third-color);
 }
 
@@ -288,9 +292,10 @@
 
 .container .project-review .review .allreview {
   margin-top: 40px;
-  border: 1px solid var(--primary-color);
+  border: 5px solid var(--primary-color);
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 }
 .container .project-review .review .allreview  h5 {
   font-size: 24px;
@@ -299,7 +304,7 @@
 .container .project-review .review .allreview  .review-x {
   padding: 24px 24px 0 24px;
   height: 251px;
-  width: 370px;
+  width: auto;
   border: 2px solid #000000 !important;
 }
 
@@ -328,6 +333,7 @@
 .container .project-review .review .allreview  .review-x .review-names .name-text {
   margin-left: 17px;
 }
+
 .container .footers {
   display: flex;
   flex-direction: column;
@@ -385,7 +391,7 @@
 .container .footers .footer {
 
   width: 100%;
-  height: 435px;
+  
   background-color: var(--secondary-color);
 }
 
@@ -450,4 +456,95 @@
   flex-direction: column;
   height: 100%;
   border: 1px solid green;
+}
+
+@media only screen and (max-width: 768px) {
+  .container .navbar .navbar-menu .hamburger {
+    display: block; /* Show hamburger on small screens */
+  }
+
+  .container .navbar .navbar-menu .nav-links {
+    display: none; /* Hide nav links on small screens */
+    position: absolute;
+    top: 81px; /* Align right under navbar */
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: var(--primary-color);
+    border-top: 1px solid var(--third-color);
+  }
+
+  .container .navbar .navbar-menu .nav-links li {
+    text-align: center;
+    border-bottom: 1px solid var(--third-color);
+    width: 100%;
+  }
+
+  .container .navbar .navbar-menu .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .container .navbar .navbar-menu.active .nav-links.active{
+    display: flex; /* Display nav links when active */
+  }
+
+  .header .header-menu .main-image {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    margin-top: 20px;
+  }
+  .header .header-menu .header-text {
+    padding: 0;
+    margin-top: 10px;
+  }
+  .header .header-menu .header-text h1 {
+    font-size: 50px;
+  }
+  .container .project-review .our-portofolios .recent-projects {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .container .project-review .review .allreview {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .container .footers .contact {
+    height: auto;
+  }
+  .container .footer {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .container .footer .footer-left {
+    width: 100%;
+  }
+  .container .footer .footer-right {
+    width: 100%;
+  }
+  .header .header-menu .rate  {
+    margin: 0;
+  }
+  .header .header-menu .rate .inside-rate  {
+    margin: 0;
+    padding: 10px;
+  }
+  .container .our-service .service-title h2 {
+    font-size: 24px;
+  }
+  .container .footers .contact {
+    height: max-content;
+    padding: 20px 0;
+  }
+  .container .footers .contact h2 {
+    font-size: 35px;
+  }
+  .container .footers .contact .footer-text {
+    margin: 9px;
+    width: 100%;
+  }
+  
+.container .our-service .services .services-box {
+  width: calc(98%);
+}
 }

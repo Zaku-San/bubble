@@ -23,26 +23,20 @@
       <section class="header">
         <nav class="navbar">
           <div class="logo">
-            <img src="img/logo.png" alt="" />
+            <img src="img/logo.png" alt="logo" />
             <p>Bubble Bash</p>
           </div>
           <div class="navbar-menu">
-            <ul>
-              <li>
-                <a href="#Home">Home</a>
-              </li>
-              <li>
-                <a href="#services">Our Services</a>
-              </li>
-              <li>
-                <a href="#home">Portofolio</a>
-              </li>
-              <li>
-                <a href="">Testimonial</a>
-              </li>
-              <li>
-                <a href="">Contact Us</a>
-              </li>
+            <button class="hamburger" aria-label="Toggle navigation">
+              &#9776;
+              <!-- Icon hamburger -->
+            </button>
+            <ul class="nav-links">
+              <li><a href="#Home">Home</a></li>
+              <li><a href="#services">Our Services</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#testimonials">Testimonial</a></li>
+              <li><a href="#contact">Contact Us</a></li>
             </ul>
           </div>
         </nav>
@@ -63,7 +57,7 @@
             </div>
           </div>
 
-          <img class="main-image" src="img/main-image.png" alt="" id="#2"/>
+          <img class="main-image" src="img/main-image.png" alt="" id="#2" />
           <!-- rate -->
           <div class="rate">
             <div class="inside-rate">
@@ -94,8 +88,7 @@
           <h2>We Provide What You Need</h2>
         </div>
         <div class="services">
-          <div class="top-services">
-            <div class="services-box1">
+            <div class="services-box">
               <img src="img/FigmaLogo.png" alt="" />
               <h5>UI/UX Designer</h5>
               <p>
@@ -103,7 +96,7 @@
                 the eyes of users.
               </p>
             </div>
-            <div class="services-box2">
+            <div class="services-box">
               <img src="img/Code.png" alt="" />
               <h5>Web Delepoment</h5>
               <p>
@@ -111,7 +104,7 @@
                 answer for you.
               </p>
             </div>
-            <div class="services-box3">
+            <div class="services-box">
               <img src="img/ArticleMedium.png" alt="" />
               <h5>Content Writter</h5>
               <p>
@@ -119,9 +112,8 @@
                 you.
               </p>
             </div>
-          </div>
-          <div class="top-services">
-            <div class="services-box4">
+
+            <div class="services-box">
               <img src="img/PresentationChart.png" alt="" />
               <h5>Branding</h5>
               <p>
@@ -129,7 +121,7 @@
                 and relax.
               </p>
             </div>
-            <div class="services-box5">
+            <div class="services-box">
               <img src="img/VideoCamera.png" alt="" />
               <h5>Editing Video</h5>
               <p>
@@ -137,18 +129,18 @@
                 answer for you.
               </p>
             </div>
-            <div class="services-box6">
+            <div class="services-box">
               <img src="img/PenNib.png" alt="" />
               <h5>Illustration</h5>
               <p>
                 Create beauty illustration as you need, and make it interesting
               </p>
             </div>
-          </div>
+
         </div>
       </section>
       <!-- project & review -->
-      <section class="project-review">
+      <section class="project-review" id="portfolio">
         <!-- protofolios -->
         <div class="our-portofolios">
           <div class="portofolios-text">
@@ -183,7 +175,7 @@
           </div>
         </div>
         <!-- review -->
-        <div class="review">
+        <div class="review" id="testimonials">
           <div class="reviewtop-text">
             <p>Clients Reviews</p>
             <h2>What Our Happy Client Say About Us</h2>
@@ -244,7 +236,7 @@
         </div>
       </section>
       <!-- footers -->
-      <section class="footers">
+      <section class="footers" id="contact">
         <!-- contact -->
         <div class="contact">
           <div class="footer-text">
@@ -318,5 +310,15 @@
         </div>
       </section>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.querySelector(".navbar-menu .hamburger");
+        const navLinks = document.querySelector(".navbar-menu .nav-links");
+
+        hamburger.addEventListener("click", function () {
+          navLinks.classList.toggle("active");
+        });
+      });
+    </script>
   </body>
 </html>
